@@ -1,0 +1,47 @@
+package Practice0314;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
+public class CurrencyFormatDemo {
+	
+
+		public static void main(String[] args)
+		{
+			System.out.println("Taiwan as location:");
+			NumberFormat moneyFormater2 = 
+				NumberFormat.getCurrencyInstance(Locale.TAIWAN);
+			
+			System.out.println(moneyFormater2.format(19.8));
+			System.out.println(moneyFormater2.format(19.81111));
+			System.out.println(moneyFormater2.format(19.89999));
+			System.out.println(moneyFormater2.format(19));
+			
+			
+			DecimalFormat pattern00dot000 = new DecimalFormat("00.000");
+			DecimalFormat pattern0dot00 = new DecimalFormat("0.00");
+			
+			double d = 12.3456789;
+			System.out.println("Pattern 00.000");
+			System.out.println(pattern00dot000.format(d));
+			System.out.println("Pattern 0.00");
+			System.out.println(pattern0dot00.format(d));
+			
+			double money = 19.8;
+			System.out.println("Pattern 0.00");
+			System.out.println("$" + pattern0dot00.format(money));
+			
+			DecimalFormat percent = new DecimalFormat("0.00%");//0.00% 陪ボκだゑ
+			
+			System.out.println("Pattern 0.00%");
+			System.out.println(percent.format(0.308));
+			
+			DecimalFormat eNotational = 
+					new DecimalFormat("#0.###E0"); //埃俱计﹃单单膀セ篈ㄤ穝篈常璶ㄏノnew
+			
+			
+			
+		}
+
+}
