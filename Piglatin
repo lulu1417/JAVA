@@ -1,0 +1,74 @@
+
+import java.util.Scanner;
+
+public class Piglatin {
+	
+	static boolean isVowel(char c){
+		
+		return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || 
+	            c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'); 
+	
+	} 
+	
+	static String pigLatin(String s) { 
+		
+		
+	    int len = s.length(); 
+	    int index = -1; 
+	    
+	    for (int i = 0; i < len; i++) { 
+	    	
+	        if (isVowel(s.charAt(i))) { 
+		        index = i; 
+		        break; 
+	        } 
+	        
+	    } 
+
+	    if (index == -1) 
+	        return "-1"; 
+
+	    System.out.println("pigstage: " + s);
+
+	    return s.substring(index) + 
+	           s.substring(0, index) + "ay"; 
+	    
+		
+		
+	}
+	static String convert(String sentence) {
+		
+        char ch[] = sentence.toCharArray(); 
+        
+        for (int i = 0; i < sentence.length(); i++) { 
+  
+            if (i == 0 && ch[i] != ' ' ||  ch[i] != ' ' && ch[i - 1] == ' ') { 
+  
+                if (ch[i] >= 'a' && ch[i] <= 'z') { 
+  
+                    ch[i] = (char)(ch[i] - 'a' + 'A'); 
+                } 
+            } 
+  
+            else if (ch[i] >= 'A' && ch[i] <= 'Z')  
+            	
+                ch[i] = (char)(ch[i] + 'a' - 'A');             
+        } 
+  
+        String st = new String(ch); 
+        System.out.println("convertstage: " + st);
+        return st; 
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		Scanner scannerObject  = new Scanner(System.in);
+		
+		String str = convert(pigLatin(scannerObject.next())); 
+		
+		System.out.println(str);
+
+	}
+
+}
