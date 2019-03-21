@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class MultiwayIfElse {
+
+	public static void main(String[] args) {
+		
+	/*	Scanner scannerObject = new Scanner(System.in);
+		
+		int a = scannerObject.nextInt();
+		
+		if(a>0) {
+			System.out.println("a>0");
+		}
+		else if(a>1) {
+			System.out.println("a>1");
+		}
+		else if(a>2) {
+			System.out.println("a>2");
+		}*/
+		
+		boolean b =! ( (6<5) && (4>3) );
+				System.out.println(b);
+				
+		int c = 8;
+		int d = 1;
+		if( (d !=0) && ((c/d) >=2) )
+			System.out.println("bingo");
+		if((d!=0)& ((c/d)>=2))
+			System.out.println("bingo again");
+	}
+	
+}
