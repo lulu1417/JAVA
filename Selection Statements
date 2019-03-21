@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class SelectionStatements {
+	
+	public static void main (String[] args) {
+		
+		System.out.println("Please enter a number:");
+		
+		Scanner scannerObjec = new Scanner(System.in);
+		int number = scannerObjec.nextInt();
+		if(number% 2 == 0) {
+			System.out.println("The condition evaluated to true");
+		}
+		
+		else {
+			System.out.println("The condition evaluated to false");
+		}
+		
+		System.out.println("Please enter a number:");
+		int grade1 = scannerObjec.nextInt();
+
+	
+		System.out.println( grade1 >= 60 ? "Passed":"Failed");
+		
+		System.out.println("Please enter a number:");
+		int grade2 = scannerObjec.nextInt();
+		System.out.println( grade2 >= 60 ? "Passed":"Failed");
+		
+
+		
+		/*String a = new String("java");//new =>跟記憶體要一塊空間
+		String b = new String("java");
+		
+		if(a == b)
+			System.out.println("a == b"); //"String"在記憶體中是一個物件,這個例子中a和b的java是存在不同記憶體位置的，因此a!=b
+		else {
+			System.out.println("a!=b");
+		}
+		
+		if(a.equals(b))
+			System.out.println("a equals to b"); //若要比較a和b裡存放的內容是否相同，要用.equals()
+		
+		String c = "java";
+		String d = "java";
+		
+		if(c == d)
+			System.out.println("c == d"); 
+		else {
+			System.out.println("c!=d");
+		}
+		
+		if(c.equals(d))
+			System.out.println("c equals to d");
+		*/
+		
+		
+	}
+
+}
