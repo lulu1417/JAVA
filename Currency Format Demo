@@ -32,13 +32,13 @@ public class CurrencyFormatDemo {
 			System.out.println("Pattern 0.00");
 			System.out.println("$" + pattern0dot00.format(money));
 			
-			DecimalFormat percent = new DecimalFormat("0.00%");//0.00% Åã¥Ü¦Ê¤À¤ñ
+			DecimalFormat percent = new DecimalFormat("0.00%");//0.00% é¡¯ç¤ºç™¾åˆ†æ¯”
 			
 			System.out.println("Pattern 0.00%");
 			System.out.println(percent.format(0.308));
 			
 			DecimalFormat eNotational = 
-					new DecimalFormat("#0.###E0"); //°£¤F¾ã¼Æ¡B¦r¦êµ¥µ¥ªº°ò¥»«¬ºA¡A¨ä¥L¦b«Å§i·s«¬ºA®É³£­n¨Ï¥Înew
+					new DecimalFormat("#0.###E0"); //é™¤äº†æ•´æ•¸ã€å­—ä¸²ç­‰ç­‰çš„åŸºæœ¬å‹æ…‹ï¼Œå…¶ä»–åœ¨å®£å‘Šæ–°å‹æ…‹æ™‚éƒ½è¦ä½¿ç”¨new
 			
 			
 			
