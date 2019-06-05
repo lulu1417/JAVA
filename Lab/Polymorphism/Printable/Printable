@@ -1,0 +1,6 @@
+
+public interface Printable {
+	void printAll(); 
+	void printLast();
+}
+
