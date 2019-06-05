@@ -16,19 +16,19 @@ public class PlayerScoreboard extends GraphicImgItem{
 			String title;
 			switch (i) {
 			case 0:
-				title = "½Ò·~¡G";
+				title = "èª²æ¥­ï¼š";
 				number = lesson;
 				break;
 			case 1:
-				title = "ªÀ¹Î¡G";
+				title = "ç¤¾åœ˜ï¼š";
 				number = club;
 				break;
 			case 2:
-				title = "·R±¡¡G";
+				title = "æ„›æƒ…ï¼š";
 				number = love;
 				break;
 			default:
-				title = "ª÷¿ú¡G";
+				title = "é‡‘éŒ¢ï¼š";
 				number = money;
 			}
 			this.text[i] = new GraphicTextItem(x+65, y+30+37*i, fontSize, title, itemList);
