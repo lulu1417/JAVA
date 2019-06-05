@@ -1,0 +1,111 @@
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import org.omg.PortableInterceptor.ORBInitInfoOperations;
+
+public class HW6 {
+	public static void main(String[] args) {
+		IOperation addition = new Addition();
+		IOperation subtraction = new Subtraction();
+		IOperation comparison = new Comparison();
+		Scanner scannerObject = new Scanner(System.in);
+		
+		String str = scannerObject.nextLine();
+		StringTokenizer token = new StringTokenizer(str, " ");
+		
+		int i=0, count=0;
+		String tokens[] = new String[100];
+		while(token.hasMoreTokens()) {
+			tokens[i] = token.nextToken();
+			count++;
+			i++;
+		}	
+		String num1 = tokens[0], operator = tokens[1], num2 = tokens[2], result = num1;
+		i = 1;
+		if(num1.equals("0")&&num2.equals("0"))
+			result = "0";
+		else if (operator.equals("+") || operator.equals("-")){ 
+				while(i<count) {
+					num1 = result; operator = tokens[i]; num2 = tokens[i+1]; i += 2;
+					if(operator.equals("+")) {
+						if(num1.charAt(0) == '-' && num2.charAt(0) == '-'){
+			            num1 = num1.substring(1);  num2 = num2.substring(1);
+			            result = "-" + addition.perform(num1, num2);
+			        }
+			        else if(num1.charAt(0) == '-' || num2.charAt(0) == '-'){
+			            if(num1.charAt(0) == '-'){  //num1 is negative
+			                num1 = num1.substring(1);
+			                if(comparison.perform(num1, num2) == ">") {
+			                	result = "-" + subtraction.perform(num1, num2);
+			                }
+			                else if(comparison.perform(num1, num2) == "<")
+			                	result = subtraction.perform(num2, num1);
+			                else result = "0";
+			            }
+			            else{ 
+			                num2 = num2.substring(1);
+			                if(comparison.perform(num1, num2) == ">")
+			                	result = subtraction.perform(num2, num1);
+			                else if(comparison.perform(num1, num2) == "<")
+			                    result = "-" + subtraction.perform(num2, num1);
+			                else result = "0";
+			            }
+			        }
+			        else {  
+			        	result = addition.perform(num1, num2);}  //all positive
+				}
+				else if(operator.equals("-")) {
+			        if(num1.charAt(0) == '-' && num2.charAt(0) != '-'){
+			            num1 = num1.substring(1); result = "-" + addition.perform(num1, num2);
+			        }
+			        else if(num1.charAt(0) == '-' && num2.charAt(0) == '-'){ //num1 is negative
+			                num1 = num1.substring(1); num2 = num2.substring(1);
+			                if(comparison.perform(num1, num2) == ">")
+			                	result = "-" + subtraction.perform(num1, num2);
+			                else if(comparison.perform(num1, num2) == "<") result = subtraction.perform(num2, num1);
+			                else result = "0";
+			        }
+			        else if (num1.charAt(0) != '-' && num2.charAt(0) != '-'){  
+			                if(comparison.perform(num1, num2) == ">")
+			                	result = subtraction.perform(num1, num2);
+			                else if(comparison.perform(num1, num2) == "<")  result = "-" + subtraction.perform(num2, num1);
+			                else result = "0";
+			        }
+			        else if(num1.charAt(0) != '-' && num2.charAt(0) == '-') {
+			        	num2 = num2.substring(1);
+			            result = addition.perform(num1, num2);
+			        }
+				}
+			  } 
+		}		
+		else {
+			result = comparison.perform(num1, num2);
+			if(result.equals(">")){ 
+				if(operator.equals(">") && num1.charAt(0) != '-'){
+					result = "true";
+				}
+				else {
+					result = "false";
+				}
+			}
+			else if(result.equals("=") && (num1.charAt(0) == num2.charAt(0))){
+				if(operator.equals("=")){
+					result = "true";
+				}
+				else{
+					result = "false";
+				}
+			}
+			else if(result.equals("<")){
+				if(operator.equals("<")&& num1.charAt(0) != '-'){
+					result = "true";
+				}
+				else{
+					result = "false";
+				}
+			}
+		}
+		System.out.println(result);
+	}
+			
+}
+
