@@ -70,7 +70,7 @@ public class PlayingPanel extends MainPanel{
 		if(this.rollingButton != null) return;
 		int w = 250, h = 100;
 		double sc = (double)this.getWidth() / Game.Width;
-		this.rollingButton = new ClickButton((Game.Width-250)/2+140, Game.Height/2, w, h, sc, "ÂY»ë¤l", "Roll");
+		this.rollingButton = new ClickButton((Game.Width-250)/2+140, Game.Height/2, w, h, sc, "Ã‚YÂ»Ã«Â¤l", "Roll");
 		this.add(rollingButton);
 	}
 	public void deleteRollingButton() {
