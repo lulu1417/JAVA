@@ -108,7 +108,7 @@ public class NckuMonopoly {
 							die.setLifeTime(i==times-1 ? 50 : standardTickAdd);
 							if(i == times-1) { //last time
 								//die number hint
-								String hintString = "ÂY¥XÂI¼Æ¡G" + newNum;
+								String hintString = "æ“²å‡ºé»æ•¸ï¼š" + newNum;
 								GraphicItem hint = new GraphicTextItem((Game.Width-250)/2+140, Game.Height/2-100, 30, hintString, Game.graphicItems);
 								hint.setLifeTime(50);
 								//change state
@@ -135,26 +135,26 @@ public class NckuMonopoly {
 						Cell steppedCell = currentPlayer.getCurrentCell();
 						switch(steppedCell.getCellType()) {
 							case NOTHING: //no event
-								mainW.getPlayingPanel().showEventName("¡@¡@¡@³o¸Ì¤°»ò³£¨S¦³...", (Game.Width-250)/2+100, Game.Height/2-100, 90);
+								mainW.getPlayingPanel().showEventName("ã€€ã€€ã€€é€™è£¡ä»€éº¼éƒ½æ²’æœ‰...", (Game.Width-250)/2+100, Game.Height/2-100, 90);
 								tickStart(21);
 								break;
 							case SELECT: //select event
 								String selections[];
 								switch(steppedCell.getSelectPolicy()) {
 									case THREE: {
-										String selections_temp[] = {"½Ò·~", "ªÀ¹Î", "·R±¡"};
+										String selections_temp[] = {"èª²æ¥­", "ç¤¾åœ˜", "æ„›æƒ…"};
 										selections = selections_temp;
 										} break;
 									case LESSON: {
-										String selections_temp[] = {"½Ò·~","",""}; 
+										String selections_temp[] = {"èª²æ¥­","",""}; 
 										selections = selections_temp;
 										} break;
 									case CLUB: {
-										String selections_temp[] = {"","ªÀ¹Î",""}; 
+										String selections_temp[] = {"","ç¤¾åœ˜",""}; 
 										selections = selections_temp;
 										} break;
 									default: {
-										String selections_temp[] = {"","","·R±¡"}; 
+										String selections_temp[] = {"","","æ„›æƒ…"}; 
 										selections = selections_temp;
 										} break;
 								}
@@ -166,7 +166,7 @@ public class NckuMonopoly {
 								mainW.getPlayingPanel().createSelections(steppedCell.getMessage(),selections[0],selections[1],selections[2]);
 								break;
 							case START: //start event
-								mainW.getPlayingPanel().showEventName("¦^¨ì°_ÂI¡AÀò±o¤@¦Ê¤¸", (Game.Width-250)/2+100, Game.Height/2-100, 90);
+								mainW.getPlayingPanel().showEventName("å›åˆ°èµ·é»ï¼Œç²å¾—ä¸€ç™¾å…ƒ", (Game.Width-250)/2+100, Game.Height/2-100, 90);
 								currentPlayer.addMoney(100);
 								tickStart(21);
 								break;
@@ -176,31 +176,31 @@ public class NckuMonopoly {
 								int chanceNum = rng.nextInt(chanceCount);
 								switch (chanceNum) {
 								case 0: {
-									mainW.getPlayingPanel().showEventName("¡@¡@JavaÂ¼½Ò¡A½Ò·~´î¥b", (Game.Width-250)/2+100, Game.Height/2-100, 90);
+									mainW.getPlayingPanel().showEventName("ã€€ã€€Javaç¿¹èª²ï¼Œèª²æ¥­æ¸›åŠ", (Game.Width-250)/2+100, Game.Height/2-100, 90);
 									currentPlayer.addLesson(-currentPlayer.getLesson()/2);
 									tickStart(21);
 								} break;
 								case 1: {
-									mainW.getPlayingPanel().showEventName("¡@¡@¹ï¤¤µo²¼¡AÀò±o200¤¸", (Game.Width-250)/2+100, Game.Height/2-100, 90);
+									mainW.getPlayingPanel().showEventName("ã€€ã€€å°ä¸­ç™¼ç¥¨ï¼Œç²å¾—200å…ƒ", (Game.Width-250)/2+100, Game.Height/2-100, 90);
 									currentPlayer.addMoney(200);
 									tickStart(21);
 								} break;
 								case 2: {
-									mainW.getPlayingPanel().showEventName("¡@¾ß¨ì50¤¸", (Game.Width-250)/2+100, Game.Height/2-100, 90);
+									mainW.getPlayingPanel().showEventName("ã€€æ’¿åˆ°50å…ƒ", (Game.Width-250)/2+100, Game.Height/2-100, 90);
 									currentPlayer.addMoney(50);
 									tickStart(21);
 								} break;
 								case 3: {
-									String chanceSelections[] = {"½Ò·~","ªÀ¹Î","·R±¡"};
+									String chanceSelections[] = {"èª²æ¥­","ç¤¾åœ˜","æ„›æƒ…"};
 									int chanceScore = -10;
 									this.steppedScore = chanceScore;
 									for(int i=0;i<chanceSelections.length;++i)
 										if(!chanceSelections[i].equals(""))
 											chanceSelections[i] = chanceSelections[i] + chanceScore;
-									mainW.getPlayingPanel().createSelections("¦çªA¬ï¤Ï",chanceSelections[0],chanceSelections[1],chanceSelections[2]);
+									mainW.getPlayingPanel().createSelections("è¡£æœç©¿å",chanceSelections[0],chanceSelections[1],chanceSelections[2]);
 								} break;
 								case 4: {
-									mainW.getPlayingPanel().showEventName("¡@¡@¦Ò¤W¬ã¨s©Ò¡A¾Ç·~+50", (Game.Width-250)/2+100, Game.Height/2-100, 90);
+									mainW.getPlayingPanel().showEventName("ã€€ã€€è€ƒä¸Šç ”ç©¶æ‰€ï¼Œå­¸æ¥­+50", (Game.Width-250)/2+100, Game.Height/2-100, 90);
 									currentPlayer.addLesson(50);
 									tickStart(21);
 								} break;
@@ -209,7 +209,7 @@ public class NckuMonopoly {
 								}
 								break;
 							default: //fate event, shop event
-								mainW.getPlayingPanel().showEventName("¦¹®æ©|¥¼§¹¦¨", (Game.Width-250)/2+100, Game.Height/2-100, 90);
+								mainW.getPlayingPanel().showEventName("æ­¤æ ¼å°šæœªå®Œæˆ", (Game.Width-250)/2+100, Game.Height/2-100, 90);
 								tickStart(21);
 								break;
 						}
