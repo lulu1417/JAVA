@@ -1,5 +1,5 @@
 
-public class Paint {
+public class Paint { 
 	public static void main(String[] args) {
 		System.out.println(Shape.color);
 		Shape shape1 = new Rectangle();
