@@ -1,0 +1,24 @@
+
+public class SayHello {
+	public String sayHello(String name){ //同名但有不同做法->靜態多型
+		return "Hello " + name;
+	}
+	public String sayHello(String name, String gender) {
+		if(gender.equals("boy")) {
+			return "Hello! Mr."+ name;
+		}
+		else if(gender.equals("girl")) {
+			return "Hello! Ms."+ name;
+		}
+		else {
+			return "Hello! "+ name;
+		}
+	}
+	public static void main(String[] args) {
+		SayHello hello = new SayHello();
+		System.out.println(hello.sayHello("S.J.")); //decide at compile time
+		System.out.println(hello.sayHello("S.J.","boy")); //decide at compile time
+	}
+		
+}
+//early->指寫程式的當下  late->decided at執行的時候
