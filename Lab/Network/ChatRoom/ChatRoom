@@ -1,0 +1,19 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ChatRoom {
+	public static void main(String[] args) {
+		try {
+			ServerSocket serverSock = new ServerSocket(8000);
+			System.out.println("server start");
+			
+			while(true) {
+				Socket cSock = serverSock.accept();
+				Chat chat = new Chat(cSock);
+				Thread chatthread = new Thread(chat);
+				chatthread.start();
+			}
+		}catch (IOException e) {System.out.println("disconnected...");}
+	}
+}
