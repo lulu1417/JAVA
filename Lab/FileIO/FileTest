@@ -1,0 +1,24 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.io.Writer;
+
+import javax.print.attribute.standard.MediaSize.Other;
+
+public class FileTest {
+	public static void main(String[] args) {
+		try { //開檔動作要放在try block裡, 裡面放的屬於local variable
+			PrintWriter writer = new PrintWriter(new FileOutputStream("c:\\output.txt",true));
+			
+			writer.println("YEAH");
+			writer.println("hihi");
+			writer.println("nono");
+			
+			writer.flush();//確保檔案流通到你要的磁碟
+			writer.close();//確保檔案明確被close以防被讀寫,java的優化其實會自動做這步驟，但保險起見手動close比較好
+			
+		} catch (FileNotFoundException e) { //如果有錯誤，執行catch
+			e.printStackTrace();
+		}
+	}
+}
