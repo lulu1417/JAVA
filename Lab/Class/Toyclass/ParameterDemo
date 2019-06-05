@@ -1,5 +1,5 @@
 
-public class ClassParameterDemo {
+public class ParameterDemo {
 	public void main(String[] args) {
 		ToyClass anObject = new ToyClass("Robot Dog", 10);
 		System.out.println(anObject);
